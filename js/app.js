@@ -32,10 +32,12 @@ function shuffle(array) {
 function newGame() {
     let shuffleCards = shuffle(cards);
     for (let i = 0; i < shuffleCards.length; i++) {
+        deck.innerHTML = "";
         shuffleCards;
         cards.forEach(function (image) {
             deck.appendChild(image);
         });
+        cards[i].classList.remove('show', 'open', 'match');
     };
 }
 
