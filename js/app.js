@@ -4,7 +4,7 @@
 
 const deck = document.querySelector('.deck');
 const card = document.getElementsByClassName('card');
-const cards = [...card];
+let cards = [...card];
 
 /*
  * Display the cards on the page
@@ -38,11 +38,12 @@ function newGame() {
             deck.appendChild(image);
         });
         cards[i].classList.remove('show', 'open', 'match');
-    };
+    }
 }
 
 // run new game when page is loaded/refreshed
 window.onload = newGame();
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -59,7 +60,7 @@ window.onload = newGame();
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function (evt) {
         event.preventDefault();
-        cards[i].classList.toggle('show');
-        cards[i].classList.toggle('open');
+        this.classList.toggle('show');
+        this.classList.toggle('open');
     });
-};
+}
