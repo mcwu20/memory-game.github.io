@@ -56,11 +56,54 @@ window.onload = newGame();
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-// click cards will show the hidden side
-for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function (evt) {
-        event.preventDefault();
-        this.classList.toggle('show');
-        this.classList.toggle('open');
-    });
+ // click cards will show the hidden side
+ for (let i = 0; i < cards.length; i++) {
+     cards[i].addEventListener('click', function (evt) {
+         event.preventDefault();
+         this.classList.toggle('show');
+         this.classList.toggle('open');
+     });
+     cards[i].addEventListener('click', openCard);
+ }
+
+// list of open cards
+let openedCards = [];
+
+// function to open and match cards
+function openCard() {
+    openedCards.push(this);
+
+    let num = openedCards.length;
+
+    if (num === 2) {
+        if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
+            matches();
+        } else {
+            mismatched();
+        }
+    };
+}
+
+// if cards match
+function matches() {
+    openedCards[0].classList.add('match');
+    openedCards[1].classList.add('match');
+    openedCards[0].classList.remove('show', 'open');
+    openedCards[1].classList.remove('show', 'open');
+
+    openedCards = [];
+}
+
+// if cards don't match
+function mismatched() {
+    openedCards[0].classList.add('mismatched');
+    openedCards[1].classList.add('mismatched');
+
+    // close opened cards
+    setTimeout(function () {
+        openedCards[0].classList.remove('show', 'open', 'mismatched');
+        openedCards[1].classList.remove('show', 'open', 'mismatched');
+
+        openedCards = [];
+    }, 800);
 }
