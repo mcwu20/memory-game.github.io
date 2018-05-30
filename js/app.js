@@ -32,15 +32,15 @@ function shuffle(array) {
 function newGame() {
     let shuffleCards = shuffle(cards);
     for (let i = 0; i < shuffleCards.length; i++) {
-        shuffleCards;
-        cards.forEach(function (image) {
-            deck.appendChild(image);
-        });
-    };
+      [].forEach.call(shuffleCards, function (image) {
+          deck.appendChild(image);
+      });
+    }
 }
 
 // run new game when page is loaded/refreshed
 window.onload = newGame();
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -56,8 +56,8 @@ window.onload = newGame();
 // click cards will show the hidden side
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function (evt) {
-        event.preventDefault();
-        cards[i].classList.toggle('show');
-        cards[i].classList.toggle('open');
+        // event.preventDefault();
+        this.classList.toggle('show');
+        this.classList.toggle('open');
     });
-};
+}
