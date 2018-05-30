@@ -28,6 +28,19 @@ function shuffle(array) {
     return array;
 }
 
+// create a new game
+function newGame() {
+    let shuffleCards = shuffle(cards);
+    for (let i = 0; i < shuffleCards.length; i++) {
+        shuffleCards;
+        cards.forEach(function (image) {
+            deck.appendChild(image);
+        });
+    };
+}
+
+// run new game when page is loaded/refreshed
+window.onload = newGame();
 
 /*
  * set up the event listener for a card. If a card is clicked:
