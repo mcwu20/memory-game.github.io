@@ -37,7 +37,7 @@ function newGame() {
         cards.forEach(function (image) {
             deck.appendChild(image);
         });
-        cards[i].classList.remove('show', 'open', 'match');
+        cards[i].classList.remove('show', 'open', 'match', 'disable');
     }
 }
 
@@ -62,6 +62,7 @@ window.onload = newGame();
          event.preventDefault();
          this.classList.toggle('show');
          this.classList.toggle('open');
+         this.classList.toggle('disable');
      });
      cards[i].addEventListener('click', openCard);
  }
@@ -86,8 +87,8 @@ function openCard() {
 
 // if cards match
 function matches() {
-    openedCards[0].classList.add('match');
-    openedCards[1].classList.add('match');
+    openedCards[0].classList.add('match', 'disable');
+    openedCards[1].classList.add('match', 'disable');
     openedCards[0].classList.remove('show', 'open');
     openedCards[1].classList.remove('show', 'open');
 
@@ -99,6 +100,8 @@ function mismatched() {
     openedCards[0].classList.add('mismatched');
     openedCards[1].classList.add('mismatched');
 
+    disable();
+
     // close opened cards
     setTimeout(function () {
         openedCards[0].classList.remove('show', 'open', 'mismatched');
@@ -106,4 +109,11 @@ function mismatched() {
 
         openedCards = [];
     }, 800);
+}
+
+// disable click feature of cards
+function disable(){
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.add('disable');
+    });
 }
