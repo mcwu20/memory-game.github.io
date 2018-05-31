@@ -99,14 +99,14 @@ function matches() {
 function mismatched() {
     openedCards[0].classList.add('mismatched');
     openedCards[1].classList.add('mismatched');
-
+    // disable clicking
     disable();
-
     // close opened cards
     setTimeout(function () {
         openedCards[0].classList.remove('show', 'open', 'mismatched');
         openedCards[1].classList.remove('show', 'open', 'mismatched');
-
+        // re-enable clicking
+        enable();
         openedCards = [];
     }, 800);
 }
@@ -115,5 +115,17 @@ function mismatched() {
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disable');
+    });
+}
+
+// enable click feature of unmatched cards
+function enable(){
+    let matchedCard = document.getElementsByClassName('match');
+
+    Array.prototype.filter.call(cards, function(card){
+        card.classList.remove('disable');
+        for(var i = 0; i < matchedCard.length; i++){
+            matchedCard[i].classList.add('disable');
+        }
     });
 }
