@@ -82,6 +82,8 @@ function openCard() {
         } else {
             mismatched();
         }
+        // only apply 1 move per 2 cards clicked
+        moveCounter();
     };
 }
 
@@ -128,4 +130,13 @@ function enable(){
             matchedCard[i].classList.add('disable');
         }
     });
+}
+
+// move counter
+const numMoves = document.querySelector('.moves');
+let moves = 0;
+
+function moveCounter() {
+    moves++;
+    numMoves.innerHTML = moves;
 }
