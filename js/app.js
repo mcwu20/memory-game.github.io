@@ -6,6 +6,10 @@ const deck = document.querySelector('.deck');
 const card = document.getElementsByClassName('card');
 let cards = [...card];
 
+// move counter variables
+const numMoves = document.querySelector('.moves');
+let moves = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -39,6 +43,7 @@ function newGame() {
         });
         cards[i].classList.remove('show', 'open', 'match', 'disable');
     }
+    resetMoves();
 }
 
 // run new game when page is loaded/refreshed
@@ -133,10 +138,13 @@ function enable(){
 }
 
 // move counter
-const numMoves = document.querySelector('.moves');
-let moves = 0;
-
 function moveCounter() {
     moves++;
+    numMoves.innerHTML = moves;
+}
+
+// reset number of moves
+function resetMoves() {
+    moves = 0;
     numMoves.innerHTML = moves;
 }
