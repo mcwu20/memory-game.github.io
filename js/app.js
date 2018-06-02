@@ -48,6 +48,7 @@ function newGame() {
         cards[i].classList.remove('show', 'open', 'match', 'disable');
     }
     resetMoves();
+    resetRating();
 }
 
 // run new game when page is loaded/refreshed
@@ -161,4 +162,10 @@ function starRating() {
     } else if (moves > 16) {
         stars[1].style.visibility = 'hidden';
     }
+}
+
+// reset star rating
+function resetRating() {
+    stars[1].style.visibility = 'visible';
+    stars[2].style.visibility = 'visible';
 }
