@@ -10,6 +10,10 @@ let cards = [...card];
 const numMoves = document.querySelector('.moves');
 let moves = 0;
 
+// star rating variable
+const stars = document.querySelectorAll('.fa-star');
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -141,10 +145,20 @@ function enable(){
 function moveCounter() {
     moves++;
     numMoves.innerHTML = moves;
+    starRating();
 }
 
 // reset number of moves
 function resetMoves() {
     moves = 0;
     numMoves.innerHTML = moves;
+}
+
+// star rating
+function starRating() {
+    if (moves > 12 && moves < 16) {
+        stars[2].style.visibility = 'hidden';
+    } else if (moves > 16) {
+        stars[1].style.visibility = 'hidden';
+    }
 }
