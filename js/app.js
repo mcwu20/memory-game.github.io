@@ -85,7 +85,6 @@ function openCard() {
     openedCards.push(this);
 
     let num = openedCards.length;
-
     if (num === 2) {
         if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
             matches();
@@ -95,6 +94,11 @@ function openCard() {
         // only apply 1 move per 2 cards clicked
         moveCounter();
     };
+    // start timer on first click
+    if (!startTime) {
+        startTime = true;
+        startTimer();
+    }
 }
 
 // if cards match
@@ -168,4 +172,21 @@ function starRating() {
 function resetRating() {
     stars[1].style.visibility = 'visible';
     stars[2].style.visibility = 'visible';
+}
+
+// timer
+let second = 0, minute = 0;
+let startTime = false;  // controls timer
+const timer = document.querySelector('.timer');
+
+function startTimer() {
+  const interval = setInterval(function () {
+      timer.innerHTML = minute + ' min ' + second + ' sec';
+      second++;
+      // change seconds to minutes
+      if (second == 60) {
+          minute++;
+          second = 0;
+      }
+  }, 1000);
 }

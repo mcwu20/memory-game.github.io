@@ -111,3 +111,8 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.score-panel .game-time {
+    display: inline-block;
+    margin: 0 2em;
+}
