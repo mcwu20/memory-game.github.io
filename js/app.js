@@ -13,6 +13,11 @@ let moves = 0;
 // star rating variable
 const stars = document.querySelectorAll('.fa-star');
 
+// timer variables
+let second = 0, minute = 0;
+let startTime = false;  // controls timer
+const timer = document.querySelector('.timer');
+var interval;
 
 /*
  * Display the cards on the page
@@ -49,6 +54,7 @@ function newGame() {
     }
     resetMoves();
     resetRating();
+    resetTimer();
 }
 
 // run new game when page is loaded/refreshed
@@ -175,18 +181,23 @@ function resetRating() {
 }
 
 // timer
-let second = 0, minute = 0;
-let startTime = false;  // controls timer
-const timer = document.querySelector('.timer');
-
 function startTimer() {
-  const interval = setInterval(function () {
-      timer.innerHTML = minute + ' min ' + second + ' sec';
-      second++;
-      // change seconds to minutes
-      if (second == 60) {
-          minute++;
-          second = 0;
-      }
-  }, 1000);
+    interval = setInterval(function () {
+        timer.innerHTML = minute + ' min ' + second + ' sec';
+        second++;
+        // change seconds to minutes
+        if (second == 60) {
+            minute++;
+            second = 0;
+        }
+    }, 1000);
+}
+
+// reset timer
+function resetTimer() {
+    clearInterval(interval);
+    second = 0;
+    minute = 0;
+    timer.innerHTML = minute + ' min ' + second + ' sec';
+    startTime = false;
 }
