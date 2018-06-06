@@ -237,3 +237,8 @@ function win() {
 function closeModal() {
     modal.style.display = 'none';
 }
+
+function playAgain() {
+    newGame();
+    closeModal();
+}
