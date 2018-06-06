@@ -91,15 +91,16 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 370px;
+    width: 580px;
     margin-bottom: 10px;
+    font-size: 1.25em;
 }
 
 .score-panel .stars {
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 15px 0 0;
     color: #f6da06;
 }
 
@@ -110,17 +111,20 @@ h1 {
 
 .score-panel .pause {
     float: right;
-    margin: 0 0.5em;
+    padding: 10px 15px;
+    margin-right: 1.5em;
     cursor: pointer;
 }
 
 .score-panel .game-time {
     display: inline-block;
     margin: 0 2em;
+    padding: 10px 5px;
 }
 
 .score-panel .restart {
     float: right;
+    padding: 10px 15px;
     cursor: pointer;
 }
 
