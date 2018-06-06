@@ -175,16 +175,16 @@ function resetMoves() {
 // star rating
 function starRating() {
     if (moves > 12 && moves < 16) {
-        stars[2].style.visibility = 'hidden';
+        stars[2].classList.replace('fas', 'far');
     } else if (moves > 16) {
-        stars[1].style.visibility = 'hidden';
+        stars[1].classList.replace('fas', 'far');
     }
 }
 
 // reset star rating
 function resetRating() {
-    stars[1].style.visibility = 'visible';
-    stars[2].style.visibility = 'visible';
+    stars[1].classList.replace('far', 'fas');
+    stars[2].classList.replace('far', 'fas');
 }
 
 // timer
