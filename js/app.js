@@ -201,3 +201,9 @@ function resetTimer() {
     timer.innerHTML = minute + ' min ' + second + ' sec';
     startTime = false;
 }
+
+// pause timer/game
+function pause() {
+    clearInterval(interval);
+    startTime = false;
+}

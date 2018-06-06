@@ -91,7 +91,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 370px;
     margin-bottom: 10px;
 }
 
@@ -107,12 +107,18 @@ h1 {
     display: inline-block;
 }
 
-.score-panel .restart {
+.score-panel .pause {
     float: right;
+    margin: 0 0.5em;
     cursor: pointer;
 }
 
 .score-panel .game-time {
     display: inline-block;
     margin: 0 2em;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
 }
