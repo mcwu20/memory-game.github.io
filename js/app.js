@@ -5,6 +5,7 @@
 const deck = document.querySelector('.deck');
 const card = document.getElementsByClassName('card');
 let cards = [...card];
+let matchedCard = document.getElementsByClassName('match');
 
 // move counter variables
 const numMoves = document.querySelector('.moves');
@@ -18,6 +19,11 @@ let second = 0, minute = 0;
 let startTime = false;  // controls timer
 const timer = document.querySelector('.timer');
 var interval;
+
+// congratulations variables
+const rating = document.getElementById('rating');
+const movesUsed = document.getElementById('moves');
+const playTime = document.getElementById('play-time');
 
 /*
  * Display the cards on the page
@@ -100,11 +106,14 @@ function openCard() {
         // only apply 1 move per 2 cards clicked
         moveCounter();
     };
+
     // start timer on first click
     if (!startTime) {
         startTime = true;
         startTimer();
     }
+
+    win();
 }
 
 // if cards match
@@ -142,8 +151,6 @@ function disable(){
 
 // enable click feature of unmatched cards
 function enable(){
-    let matchedCard = document.getElementsByClassName('match');
-
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disable');
         for(var i = 0; i < matchedCard.length; i++){
@@ -206,4 +213,27 @@ function resetTimer() {
 function pause() {
     clearInterval(interval);
     startTime = false;
+}
+
+// win game
+let modal = document.getElementById('congrats');
+let close = document.querySelector('.close');
+
+function win() {
+    if (matchedCard.length == 16) {
+        clearInterval(interval);
+
+        modal.style.display = 'block';
+
+        const finalRating = document.querySelector('.stars').innerHTML;
+        const timeUsed = timer.innerHTML;
+
+        rating.innerHTML = finalRating;
+        movesUsed.innerHTML = 'Moves Used: ' + moves;
+        playTime.innerHTML = 'Time: ' + timeUsed;
+    }
+}
+
+function closeModal() {
+    modal.style.display = 'none';
 }
