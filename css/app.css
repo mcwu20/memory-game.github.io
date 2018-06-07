@@ -191,6 +191,20 @@ h1 {
     padding: 1em;
 }
 
+button {
+    font-size: 20px;
+    padding: 0.5em;
+    margin: 1em;
+    background: #13133a;
+    color: #fff;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+button:hover {
+    color: #f9fafb;
+}
+
 /*
  * Keyframe animations
  */
