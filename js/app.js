@@ -25,6 +25,9 @@ const rating = document.getElementById('rating');
 const movesUsed = document.getElementById('moves');
 const playTime = document.getElementById('play-time');
 
+// pause button
+const pauseButton = document.querySelector('.pause');
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -111,6 +114,7 @@ function openCard() {
     if (!startTime) {
         startTime = true;
         startTimer();
+        pauseButton.style.color = 'black';
     }
 
     win();
@@ -213,6 +217,7 @@ function resetTimer() {
 function pause() {
     clearInterval(interval);
     startTime = false;
+    pauseButton.style.color = 'grey';
 }
 
 // win game
