@@ -69,7 +69,6 @@ function newGame() {
 // run new game when page is loaded/refreshed
 window.onload = newGame();
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -222,7 +221,6 @@ function pause() {
 
 // win game
 let modal = document.getElementById('congrats');
-let close = document.querySelector('.close');
 
 function win() {
     if (matchedCard.length == 16) {
