@@ -83,6 +83,11 @@ h1 {
     animation: flash 0.5s;
 }
 
+.deck .card.mismatched {
+    background: red;
+    animation: shake 0.5s;
+}
+
 .deck .card.disable {
     pointer-events: none;
 }
@@ -198,5 +203,20 @@ h1 {
     }
     100% {
         background: #02ccba;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(5px, 0);
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: translate(-5px, 0);
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: translate(5px, 0);
+        transform: rotate(4deg);
     }
 }
